@@ -1,0 +1,13 @@
+mode: ContinuousDeployment
+branches:
+  develop:
+    tag: b
+  release:
+    tag: rc
+  hotfix:
+    tag: rc
+  pull-request:
+    tag: pr
+ignore:
+  sha: []
+merge-message-formats: {}
