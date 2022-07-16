@@ -59,10 +59,9 @@ namespace Web.Api.Test
                 endpoints.MapControllers();
             });
 
-            var asss = GetType().Assembly.GetName().Version?.ToString();
+            var version0 = GetType().Assembly.GetName().Version?.ToString();
             var Version1 = Assembly.GetEntryAssembly()?.GetName().Version;
             var Version21 = Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyFileVersionAttribute>()?.Version;
-            var Version22 = Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyVersionAttribute>()?.Version;
             var InformationalVersion = Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
         }
     }
