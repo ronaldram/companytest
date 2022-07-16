@@ -10,6 +10,8 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 namespace Web.Api.Test
 {
@@ -25,6 +27,10 @@ namespace Web.Api.Test
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+           
+
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -52,6 +58,12 @@ namespace Web.Api.Test
             {
                 endpoints.MapControllers();
             });
+
+            var asss = GetType().Assembly.GetName().Version?.ToString();
+            var Version1 = Assembly.GetEntryAssembly()?.GetName().Version;
+            var Version21 = Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyFileVersionAttribute>()?.Version;
+            var Version22 = Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyVersionAttribute>()?.Version;
+            var InformationalVersion = Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
         }
     }
 }
