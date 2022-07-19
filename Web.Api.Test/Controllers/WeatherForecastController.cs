@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 using Application.Business;
@@ -22,16 +23,27 @@ namespace Web.Api.Test.Controllers
             "Warm", "Balmsy", "Hots", "Swelterings", "Scorchings"
         };
 
+
+        public NameValueCollection _settginsCollection;
         private readonly ILogger<WeatherForecastController> _logger;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
+            _settginsCollection = new NameValueCollection()
+            {
+                { "key1", "value1" },
+                { "key2", "value2" },
+                { "key3", "value3" }
+            };
         }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+
+            var value = _settginsCollection["key1"];
+
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

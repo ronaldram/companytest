@@ -27,10 +27,6 @@ namespace Web.Api.Test
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-           
-
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -58,11 +54,6 @@ namespace Web.Api.Test
             {
                 endpoints.MapControllers();
             });
-
-            var version0 = GetType().Assembly.GetName().Version?.ToString();
-            var Version1 = Assembly.GetEntryAssembly()?.GetName().Version;
-            var Version21 = Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyFileVersionAttribute>()?.Version;
-            var InformationalVersion = Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
         }
     }
 }

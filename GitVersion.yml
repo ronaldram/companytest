@@ -1,4 +1,3 @@
-mode: ContinuousDeployment
 branches:
   develop:
     tag: b
